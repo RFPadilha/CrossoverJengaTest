@@ -17,7 +17,7 @@ The purpose of the tower is to verify if the student is capable of going to more
 ## Gameplay
 
 Each tower can be tested for the students knowledge, where all the glass pieces are removed and gravity is applied on the tower. If it's still standing, the student passes, else they need to
-reinforce their "glass" subjects.
+reinforce their "glass" subjects. Each piece can be clicked on to show the subject details. The tower can also be rotated around and scrolled up or down for ease of visualization on the pieces.
 
 ## Commentary
 
