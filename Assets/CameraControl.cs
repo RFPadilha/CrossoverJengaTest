@@ -6,18 +6,19 @@ public class CameraControl : MonoBehaviour
 {
     public StacksCreator stacksCreator;
     public GameObject focusedStack;
+    public GameObject cameraCenter;
     public float speed = 2f;
     Vector3 offset;
 
     Vector3 Origin;
-    // Start is called before the first frame update
+
     void Start()
     {
-        offset = new Vector3(1, 1, -10);
+        offset = new Vector3(1,0,0);
         FocusOnStack(stacksCreator.stack2);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         RotateCamera();
@@ -29,23 +30,23 @@ public class CameraControl : MonoBehaviour
     }
     public void FocusOnStack(GameObject stack)
     {
-        Vector3 offset = new Vector3(1, 1, -10);
-        transform.position = stack.transform.position + offset;
+        cameraCenter.transform.position = stack.transform.position + offset;
         focusedStack = stack;
     }
     void RotateCamera()
     {
+
         if (Input.GetMouseButton(0))
         {
-            transform.RotateAround(focusedStack.transform.position,
+            transform.RotateAround(cameraCenter.transform.position,
                                             transform.up,
                                             -Input.GetAxis("Mouse X") * speed);
 
-            transform.RotateAround(focusedStack.transform.position,
+            transform.RotateAround(cameraCenter.transform.position,
                                             transform.right,
                                             -Input.GetAxis("Mouse Y") * speed);
             transform.localRotation = Quaternion.Euler(transform.rotation.x, 0f, 0f);
-            transform.LookAt(focusedStack.transform.position);
+            transform.LookAt(cameraCenter.transform.position);
         }
 
     }
@@ -62,6 +63,6 @@ public class CameraControl : MonoBehaviour
         Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - Origin);
         Vector3 move = new Vector3(0, pos.y * speed, 0);
 
-        transform.Translate(move, Space.World);
+        cameraCenter.transform.Translate(move, Space.World);
     }
 }

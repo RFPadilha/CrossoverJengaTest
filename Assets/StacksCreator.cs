@@ -66,15 +66,15 @@ public class StacksCreator : MonoBehaviour
     }
     void SetPieceData(Block piece, PieceData newPieceData)
     {
-        newPieceData.id = piece.id;
-        newPieceData.subject = piece.subject;
-        newPieceData.grade = piece.grade;
-        newPieceData.mastery = piece.mastery;
-        newPieceData.domainid = piece.domainid;
-        newPieceData.domain = piece.domain;
-        newPieceData.cluster = piece.cluster;
-        newPieceData.standardid = piece.standardid;
-        newPieceData.standarddescription = piece.standarddescription;
+        newPieceData.blockData.id = piece.id;
+        newPieceData.blockData.subject = piece.subject;
+        newPieceData.blockData.grade = piece.grade;
+        newPieceData.blockData.mastery = piece.mastery;
+        newPieceData.blockData.domainid = piece.domainid;
+        newPieceData.blockData.domain = piece.domain;
+        newPieceData.blockData.cluster = piece.cluster;
+        newPieceData.blockData.standardid = piece.standardid;
+        newPieceData.blockData.standarddescription = piece.standarddescription;
     }
 }
     

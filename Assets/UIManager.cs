@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
         Physics.gravity = new Vector3(0, -9.81f, 0);
         foreach (Transform child in cam.focusedStack.transform)
         {
-            if (child.GetComponent<PieceData>().mastery==0)
+            if (child.GetComponent<PieceData>().blockData.mastery==0)
             {
                 toDestroy.Add(child);
             }

@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class PieceData : MonoBehaviour
 {
-    public int id;
-    public string subject;
-    public string grade;
-    public int mastery;
-    public string domainid;
-    public string domain;
-    public string cluster;
-    public string standardid;
-    public string standarddescription;
+    public Block blockData;
     public MeshRenderer _renderer;
     private Color startcolor;
     UIManager uiManager;
@@ -25,8 +17,8 @@ public class PieceData : MonoBehaviour
         _renderer = GetComponent<MeshRenderer>();
         uiManager = FindObjectOfType<UIManager>();
 
-        gradeDomainText = grade + " : " + domain;
-        idDescriptionText = standardid + " : " + standarddescription;
+        gradeDomainText = blockData.grade + " : " + blockData.domain;
+        idDescriptionText = blockData.standardid + " : " + blockData.standarddescription;
 
     }
 
@@ -43,7 +35,7 @@ public class PieceData : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            uiManager.SetDescriptionPanel(gradeDomainText, cluster, idDescriptionText);
+            uiManager.SetDescriptionPanel(gradeDomainText, blockData.cluster, idDescriptionText);
             uiManager.ShowDescriptionPanel();
         }
     }
